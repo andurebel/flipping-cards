@@ -1,5 +1,6 @@
 import { cardImages } from "./cardImages.js";
 import { useState } from "react";
+import CardList from "./components/CardList.jsx";
 
 export const App = () => {
   const [cards, setCards] = useState([]);
@@ -17,7 +18,7 @@ export const App = () => {
   };
 
   return (
-    <div className="mx-auto flex flex-col h-screen w-full bg-blue-300 items-center justify-center max-w-lg">
+    <div className="mx-auto flex flex-col bg-purple-600 items-center justify-center   ">
       <h1 className="text-3xl font-bold mb-8">Magic Match</h1>
       <button
         onClick={shuffleCards}
@@ -25,6 +26,13 @@ export const App = () => {
       >
         New Game
       </button>
+      <div className="grid grid-cols-4 gap-3 mt-10 ">
+        {cards.map((card) => {
+          return (
+            <CardList shuffle={shuffleCards} card={card} setCards={setCards} />
+          );
+        })}
+      </div>
     </div>
   );
 };
