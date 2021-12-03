@@ -16,6 +16,8 @@ export const App = () => {
         ...card,
         id: Math.random(),
       }));
+    setChoiceOne(null);
+    setChoiceTwo(null);
     setCards(shuffledCards);
     setTurns(0);
   };
@@ -58,7 +60,7 @@ export const App = () => {
   };
 
   return (
-    <div className="w-screen h-screen mx-auto flex flex-col bg-purple-600 items-center justify-center   ">
+    <div className="w-screen h-screen mx-auto flex flex-col bg-purple-700 items-center justify-center   ">
       <h1 className="text-3xl font-bold mb-8">Let's flip some Minions</h1>
       <button
         onClick={shuffleCards}
@@ -78,6 +80,9 @@ export const App = () => {
           );
         })}
       </div>
+      <p className="text-2xl font-bold mt-10 border-2 p-4 rounded-xl border-red-300">
+        Turns: <span className="text-red-400">{turns}</span>
+      </p>
     </div>
   );
 };
